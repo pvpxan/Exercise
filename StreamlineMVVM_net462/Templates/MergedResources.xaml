@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:StreamlineMVVM">
+
+<!--
+    References to styles/templates for improved controls.
+    
+    Embedding Note:
+    If using this DLL as an Embedded Resource, ONLY reference these from the window they are used in.
+            
+    xmlns:ext="clr-namespace:MVVMFramework;assembly=MVVMFramework"
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/DataTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    Library Building Note:
+    When adding this Framework to another library:
+    Change "MVVMFramework" below to the assembly name of your library.
+    Also the above references of MVVMFramework must also be changed.
+-->
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/ButtonExtended.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/CheckBoxExtended.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/FlatComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/GroupBoxImproved.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/ListViewExtended.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/ListBoxExtended.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/ScrollBarExtended.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/TextBoxExtended.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MVVMFramework;component/Templates/TreeViewExtended.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
+    

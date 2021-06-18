@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="StreamlineMVVM.WindowsMessage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StreamlineMVVM"
+             mc:Ignorable="d"
+             FontFamily="Segoe UI"
+             Height="Auto" Width="585"
+             d:DesignHeight="165" d:DesignWidth="585">
+
+    <StackPanel>
+        <Grid>
+            <Image Source="{Binding MessageIcon}" Stretch="None" HorizontalAlignment="Left" Height="52" Margin="6,10,0,0" VerticalAlignment="Top" Width="55"/>
+
+            <StackPanel Margin="70,10,10,0">
+                <TextBlock Margin="0,0,0,0" FontSize="20" Foreground="{Binding ContentHeaderColor}"
+                           TextWrapping="Wrap" Text="{Binding ContentHeader}"/>
+                <TextBlock Margin="0,10,0,0" FontSize="16" Foreground="{Binding ContentBodyColor}"
+                           Visibility="{Binding ContentBodyVisibility}"
+                           TextWrapping="Wrap" Text="{Binding ContentBody}" />
+
+                <Grid Height="20" Margin="0,15,0,0" Visibility="{Binding HyperLinkVisibility}" IsEnabled="{Binding HyperLinkIsEnabled}">
+                    <TextBlock FontSize="16" TextWrapping="Wrap">
+                        <TextBlock.Resources>
+                            <Style x:Key="{x:Type Hyperlink}" TargetType="{x:Type Hyperlink}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Foreground" Value="{Binding HyperLinkMouseOverColor}" />
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Foreground" Value="{Binding HyperLinkMouseDisabledColor}" />
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="true">
+                                        <Setter Property="Cursor" Value="Hand" />
+                                    </Trigger>
+                                </Style.Triggers>
+                                <Setter Property="Foreground" Value="{Binding HyperLinkColor}" />
+                                <Setter Property="TextDecorations" Value="Underline" />
+                            </Style>
+                        </TextBlock.Resources>
+
+                        <Hyperlink NavigateUri="{Binding HyperLinkUri}" RequestNavigate="hyperlinkRequestNavigate" KeyboardNavigation.IsTabStop="False">
+                            <TextBlock Text="{Binding HyperLinkText}" />
+                        </Hyperlink>
+                    </TextBlock>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Height="60">
+            <Button x:Name="leftButton" Margin="10,0,0,15" Width="85" Height="30" Padding="0"
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    TabIndex="1"
+                    IsTabStop="True"
+                    CommandParameter="{Binding CurrentDialogBaseWindow}"
+                    Command="{Binding LeftButton}"
+                    Visibility="{Binding LeftVisibility}"
+                    IsEnabled="{Binding LeftIsEnabled}">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                       Height="26" Margin="0,-2,0,0" Padding="0" FontSize="16" FontWeight="Bold"
+                       Content="{Binding LeftContent}"/>
+            </Button>
+
+            <Button x:Name="centerButton" Margin="0,0,0,15" Width="85" Height="30" Padding="0"
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    TabIndex="2"
+                    IsTabStop="True"
+                    CommandParameter="{Binding CurrentDialogBaseWindow}"
+                    Command="{Binding CenterButton}"
+                    Visibility="{Binding CenterVisibility}"
+                    IsEnabled="{Binding CenterIsEnabled}">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                       Height="26" Margin="0,-2,0,0" Padding="0" FontSize="16" FontWeight="Bold"
+                       Content="{Binding CenterContent}"/>
+            </Button>
+
+            <Button x:Name="rightButton" Margin="0,0,10,15" Width="85" Height="30" Padding="0"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    TabIndex="3"
+                    IsTabStop="True"
+                    CommandParameter="{Binding CurrentDialogBaseWindow}"
+                    Command="{Binding RightButton}"
+                    Visibility="{Binding RightVisibility}"
+                    IsEnabled="{Binding RightIsEnabled}">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                       Height="26" Margin="0,-2,0,0" Padding="0" FontSize="16" FontWeight="Bold"
+                       Content="{Binding RightContent}"/>
+            </Button>
+        </Grid>
+    </StackPanel>
+</UserControl>
